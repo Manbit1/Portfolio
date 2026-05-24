@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+:root {
+  --base-color: white;
+  --base-variant: rgb(226, 226, 226);
+  --text-color: black;
+  --secondary-text: rgb(20, 20, 20);
+  --accent-color: rgb(0, 81, 255);
+}
+.darkmode {
+  --base-color: black;
+  --base-variant: rgb(22, 22, 22);
+  --text-color: rgb(255, 255, 255);
+  --secondary-text: rgb(216, 216, 216);
+  --accent-color: rgb(0, 81, 255);
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 100%;
+}
+body {
+  background: linear-gradient(
+    to bottom right,
+    var(--base-color),
+    var(--base-variant)
+  );
+  color: var(--text-color);
+}
+#banner {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--secondary-text);
+}
+#spacer {
+  flex: 1;
+}
+#name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#button-grouping {
+  flex: 1;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#button-grouping button {
+  margin-left: 5px;
+}
+#email {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-variant);
+}
+#email svg {
+  fill: var(--text-color);
+}
+#github {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-variant);
+}
+#github svg:last-child {
+  display: none;
+}
+.darkmode #github svg:first-child {
+  display: none;
+}
+.darkmode #github svg:last-child {
+  display: block;
+}
+#theme-switcher {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#theme-switcher svg {
+  fill: var(--text-color);
+}
+#theme-switcher svg:last-child {
+  display: none;
+}
+.darkmode #theme-switcher svg:first-child {
+  display: none;
+}
+.darkmode #theme-switcher svg:last-child {
+  display: block;
+}
+#aboutme {
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+}
+h3 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+.sections {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+span {
+  display: block;
+  text-align: center;
+}
+.sections section {
+  align-items: center;
+  justify-content: center;
+  width: 47%;
+  margin: 0px auto;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+}
+.lists {
+  display: flex;
+  justify-content: space-between;
+}
+section {
+  width: 80%;
+  margin: 20px auto;
+  padding: 5px 10px;
+}
+li,
+ul {
+  list-style-type: none;
+}
