@@ -1,14 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 :root {
-  --base-color: white;
-  --base-variant: rgb(226, 226, 226);
+  --base-color: rgb(216, 216, 216);
+  --base-variant: rgb(202, 202, 202);
+  --base-shadow: rgb(102, 102, 102);
+  --variant-shadow: rgb(241, 241, 241);
   --text-color: black;
   --secondary-text: rgb(20, 20, 20);
   --accent-color: rgb(0, 81, 255);
 }
 .darkmode {
-  --base-color: black;
-  --base-variant: rgb(22, 22, 22);
+  --base-color: rgb(19, 19, 19);
+  --base-variant: rgb(39, 39, 39);
+  --base-shadow: black;
+  --variant-shadow: rgb(34, 34, 34);
   --text-color: rgb(255, 255, 255);
   --secondary-text: rgb(216, 216, 216);
   --accent-color: rgb(0, 81, 255);
@@ -21,7 +25,7 @@ html {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  height: 100%;
+  height: fit-content;
 }
 body {
   background: linear-gradient(
@@ -31,67 +35,24 @@ body {
   );
   color: var(--text-color);
 }
-#banner {
+header {
   display: flex;
-  align-items: center;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--secondary-text);
-}
-#spacer {
-  flex: 1;
-}
-#name {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: fit-content;
+  min-width: 350px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-shadow: var(--base-shadow) 2px 1px 5px;
+  justify-content: space-between;
   align-items: center;
 }
-#button-grouping {
-  flex: 1;
-  margin-right: 5px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-#button-grouping button {
-  margin-left: 5px;
-}
-#email {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--base-variant);
-}
-#email svg {
-  fill: var(--text-color);
-}
-#github {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--base-variant);
-}
-#github svg:last-child {
-  display: none;
-}
-.darkmode #github svg:first-child {
-  display: none;
-}
-.darkmode #github svg:last-child {
-  display: block;
+#greetings {
+  font-size: clamp(2rem, 4vw, 4rem);
 }
 #theme-switcher {
-  height: 50px;
-  width: 50px;
+  height: 3rem;
+  width: 3rem;
   padding: 0;
   border-radius: 50%;
   background-color: var(--base-variant);
@@ -111,45 +72,251 @@ body {
 .darkmode #theme-switcher svg:last-child {
   display: block;
 }
-#aboutme {
-  margin: 10px auto;
-  display: block;
-  text-align: center;
-}
-h3 {
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 10px;
-}
-
-.sections {
+#button-wrapper {
   display: flex;
-  width: 100%;
+  flex: 1;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
 }
-span {
-  display: block;
-  text-align: center;
+#spacer {
+  flex: 1;
 }
-.sections section {
-  align-items: center;
-  justify-content: center;
-  width: 47%;
-  margin: 0px auto;
-  border: 1px solid var(--text-color);
-  border-radius: 5px;
-}
-.lists {
+main {
   display: flex;
   justify-content: space-between;
 }
 section {
-  width: 80%;
-  margin: 20px auto;
-  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
 }
-li,
-ul {
-  list-style-type: none;
+#card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  position: sticky;
+  top: 3.5rem;
+  font-size: smaller;
+  width: 35%;
+  height: fit-content;
+  max-height: 600px;
+  min-width: 125px;
+  margin-left: 0.5rem;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: var();
+  box-shadow:
+    var(--base-shadow) 1px 2px 5px,
+    var(--variant-shadow) -1px -3px 1px;
+}
+.card-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+.card-item:hover {
+  animation-name: shadowAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+.card-item:not(:hover) {
+  animation-name: inverseShadowAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: backwards;
+}
+#basic-info {
+  text-align: center;
+  border-radius: 10px;
+  width: 95%;
+}
+#basic-info span {
+  display: block;
+}
+#image {
+  max-height: 100px;
+  height: 20vw;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: white 4px solid;
+}
+#about {
+  width: 95%;
+  border-radius: 10px;
+}
+#about p {
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
+}
+#button-grouping {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#button-grouping button {
+  max-height: 50px;
+  max-width: 50px;
+  height: 40px;
+  width: 40px;
+  margin-left: 0.3rem;
+}
+#email {
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-variant);
+}
+#email svg {
+  fill: var(--text-color);
+}
+#github {
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-variant);
+}
+#github svg:last-child {
+  display: none;
+}
+.darkmode #github svg:first-child {
+  display: none;
+}
+.darkmode #github svg:last-child {
+  display: block;
+}
+#linkedin {
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base-variant);
+}
+#linkedin img {
+  height: 65%;
+}
+#linkedin img:last-child {
+  display: none;
+}
+.darkmode #linkedin img:first-child {
+  display: none;
+}
+.darkmode #linkedin img:last-child {
+  display: inline;
+}
+button:hover {
+  box-shadow:
+    var(--variant-shadow) 5px 5px 5px,
+    var(--variant-shadow) -5px -5px 5px;
+}
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  height: fit-content;
+  width: 55%;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  padding: 5px;
+  border-radius: 20px;
+
+  box-shadow:
+    var(--base-shadow) 1px 2px 5px,
+    var(--variant-shadow) -1px -3px 1px;
+}
+.content-item {
+  width: 95%;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1rem;
+}
+.content-item:hover {
+  animation-name: shadowAnimation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.content-item:not(:hover) {
+  animation-name: inverseShadowAnimation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+#exp {
+  font-size: clamp(10px, 2vw, 15px);
+}
+#exp-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#exp-container section {
+  border: solid var(--base-variant) 1px;
+  width: 95%;
+  border-radius: 4px;
+  padding: 3px;
+  text-wrap: nowrap;
+  font-size: clamp(8px, 2vw, 20px);
+}
+table {
+  border: 1px var(--base-shadow) solid;
+}
+td {
+  text-align: center;
+}
+#projects {
+  display: flex;
+  flex-direction: column;
+}
+.project {
+  border: 0.5px var(--base-shadow) solid;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+.project-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.content-desc {
+  margin-right: 0.3rem;
+  max-width: 70%;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+}
+.content-pic {
+  max-width: 40%;
+}
+.content-pic img {
+  height: 200px;
+}
+@keyframes shadowAnimation {
+  from {
+    box-shadow:
+      var(--base-shadow) 0px 0px 0px,
+      var(--variant-shadow) 0px 0px 0px;
+  }
+  to {
+    box-shadow:
+      var(--base-shadow) 5px 5px 5px,
+      var(--variant-shadow) -5px -5px 5px;
+  }
+}
+@keyframes inverseShadowAnimation {
+  from {
+    box-shadow:
+      var(--base-shadow) 5px 5px 5px,
+      var(--variant-shadow) -5px -5px 5px;
+  }
+  to {
+    box-shadow:
+      var(--base-shadow) 0px 0px 0px,
+      var(--variant-shadow) 0px 0px 0px;
+  }
 }
